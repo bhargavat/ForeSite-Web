@@ -27,7 +27,6 @@ html {
   
   
   /* STRUCTURE */
-  
   .wrapper {
     display: flex;
     align-items: center;
@@ -64,7 +63,6 @@ html {
   
   
   /* TABS */
-  
   h2.inactive {
     color: #cccccc;
   }
@@ -249,9 +247,7 @@ html {
   }
   
   
-  
   /* OTHERS */
-  
   *:focus {
       outline: none;
   } 

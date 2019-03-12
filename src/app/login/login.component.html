@@ -1,0 +1,36 @@
+<div class="wrapper">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div id="logo" class="fadeIn first">
+        <img src={{logo_src}} id="icon" alt="User Icon" />
+      </div>
+
+      <div>
+          <alert></alert>
+          <router-outlet></router-outlet>
+      </div>
+      <!-- Login Form -->
+      <form (ngSubmit)="onSubmit()">
+        <input type="text" id="login" class="fadeIn second" name="login" [(ngModel)]="model.user_name" #user_name="ngModel" placeholder="Username">
+        <input type="password" id="password" class="fadeIn third" name="login" [(ngModel)]="model.password" #password="ngModel" placeholder="Password">
+        
+
+        <!-- <div *ngIf="submitted && !success">
+            Login Failed
+        </div> -->
+
+        <input type="submit" class="fadeIn fourth" value="Log In">
+
+      </form>
+  
+      <!-- Register and Forgot password-->
+      <div id="formFooter">
+        <a class="underlineHover" routerLink="/register">New User? Create an Account</a><br>
+        <a class="underlineHover" href="#">Forgot Password?</a>
+      </div>
+  
+    </div>
+  </div>
+  <router-outlet></router-outlet>

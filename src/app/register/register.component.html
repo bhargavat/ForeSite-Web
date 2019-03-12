@@ -1,0 +1,29 @@
+<div class="wrapper">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div id="logo" class="fadeIn first">
+        <h2>Registration</h2>
+      </div>
+  
+      <!-- Registration Form -->
+      <form (ngSubmit)="onSubmit()">
+        <input type="text" id="first_name" class="fadeIn third" name="register" placeholder="First Name" [(ngModel)]="model.first_name" #first_name="ngModel">
+        <input type="text" id="last_name" class="fadeIn third" name="register" placeholder="Last Name" [(ngModel)]="model.last_name" #last_name="ngModel">
+        <input type="text" id="email" class="fadeIn second" name="register" placeholder="Email" [(ngModel)]="model.email" #email="ngModel">
+        <input type="text" id="phone" class="fadeIn second" name="register" placeholder="Phone Number" [(ngModel)]="model.phone_number" #phone_number="ngModel">
+        <input type="text" id="login" class="fadeIn second" name="register" placeholder="Username" [(ngModel)]="model.user_name" #user_name="ngModel">
+        <input type="password" id="password" class="fadeIn third" name="register" placeholder="Password" [(ngModel)]="model.password" #password="ngModel">
+        <input type="password" id="confirm_password" class="fadeIn third" name="register" placeholder="Confirm Password" [(ngModel)]="confirm_password" #password="ngModel">
+        <input type="submit" class="fadeIn fourth" value="Register">
+        <alert></alert>
+      </form>
+  
+      <!-- Register and Forgot password-->
+      <div id="formFooter">
+        <a class="underlineHover" routerLink="/login">Sign In</a><br>
+      </div>
+  
+    </div>
+  </div>
