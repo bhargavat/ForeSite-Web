@@ -5,13 +5,19 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
-import { HomeComponent } from './home/home.component';
+import { AppTestComponent } from './components/app-test/app-test.component';
+import { AppMainComponent } from './app-main/app-main.component';
 
 const routes: Routes = [
-  {path: '',component: LoginComponent},
+  {path: '', component: LoginComponent},
   {path:'login', component: LoginComponent},
   {path:'register',component: RegisterComponent},
-  {path: 'home', component: HomeComponent}
+  // {path: 'test', component: AppTestComponent},
+  {path: 'main', component: AppMainComponent,
+  children: [
+    { path: 'test', component: AppTestComponent },
+  ]
+  },
 ];
 
 @NgModule({

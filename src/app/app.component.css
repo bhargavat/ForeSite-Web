@@ -1,7 +1,14 @@
-html {
+  html {
     background-color: #56baed;
   }
   
+  h1 {
+    text-align: center;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin: 40px 800px 10px 80px; 
+  }
+
   body {
     font-family: "Poppins", sans-serif;
     height: 100vh;
@@ -23,7 +30,6 @@ html {
     margin: 40px 8px 10px 8px; 
     color: #cccccc;
   }
-  
   
   
   /* STRUCTURE */
@@ -256,3 +262,7 @@ html {
       outline: none;
   } 
   
+
+
+
+

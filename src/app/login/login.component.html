@@ -9,7 +9,7 @@
 
       <div>
           <alert></alert>
-          <router-outlet></router-outlet>
+          <!-- <router-outlet></router-outlet> -->
       </div>
       <!-- Login Form -->
       <form (ngSubmit)="onSubmit()">
@@ -21,7 +21,7 @@
             Login Failed
         </div> -->
 
-        <input type="submit" class="fadeIn fourth" value="Log In">
+        <input routerLink="/main" type="submit" class="fadeIn fourth" value="Log In">
 
       </form>
   
@@ -33,4 +33,4 @@
   
     </div>
   </div>
-  <router-outlet></router-outlet>
+  <!-- <router-outlet></router-outlet> -->
