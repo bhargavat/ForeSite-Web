@@ -1,0 +1,82 @@
+<!-- <app-login></app-login> -->
+<div class="row">
+  <div class="col">
+      <app-topbar></app-topbar>
+  </div>
+</div>
+<!-- <div class="row">
+  <div class="col-sm-4">
+      <app-sidebar></app-sidebar>
+  </div>
+  <div class="col-sm-8">
+      <app-home></app-home>
+  </div>
+</div> -->
+
+<div class="row">
+  <!-- <app-sidebar></app-sidebar> -->
+
+  <!-- <div class="sidenav">
+  <div class="btn-group-vertical" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-secondary">Home</button>
+      <button type="button" class="btn btn-secondary">My Event</button>
+      <button type="button" class="btn btn-secondary">Create Event</button>
+  </div>
+</div> -->
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode = "push" [(opened)]= "open" class = "sidebar">
+  
+    <ul>
+      <li>
+        <a [routerLink]="['/main/test']">
+          <span><i class="fas fa-home"></i></span>
+          <span>Home</span>
+        </a>
+      </li>
+
+      <li>
+          <a [routerLink]="['/main/test']">
+            <span><i class="fas fa-calendar-alt"></i></span>
+            <span>My Event</span>
+          </a>
+      </li>
+
+      <li>
+          <a href = "">
+            <span><i class="fas fa-plus-square"></i></span>
+            <span>Create Event</span>
+          </a>
+      </li>
+
+      <li>
+          <a href = "">
+            <span><i class="fas fa-heart"></i></span>
+            <span>Wishlist</span>
+          </a>
+      </li>
+
+    </ul>
+
+    
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <!-- <h2 class = "content-style">Welcome to Foresite！</h2> -->
+    <!-- <p><mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox></p>
+    <p><button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button></p> -->
+    <!-- <p><mat-icon (click)="this.sidenavService.toggle()">dehaze</mat-icon></p> -->
+    <!-- <p>Events:</p>
+    <div class="example-events">
+      <div *ngFor="let e of events">{{e}}</div>
+    </div> -->
+    <!-- <app-home></app-home> -->
+  <!-- <mat-icon (click)="sidenav.toggle()">dehaze</mat-icon> -->
+  <router-outlet></router-outlet>    
+  </mat-sidenav-content>
+  </mat-sidenav-container>
+
+  
+</div>

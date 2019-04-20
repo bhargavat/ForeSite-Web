@@ -1,0 +1,43 @@
+.headerStyle{
+    /* float: right; */
+    color:black;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size:30px;
+    /* background-color:black; */
+}
+
+.logoStyle{
+    height: 70px;
+    padding-left:10px;
+    padding-top:5px;
+    padding-bottom:5px;
+    margin-right:15px;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+mat-toolbar{
+    height: 80px;
+    background-color:rgb(227, 245, 245);
+    /* margin-top: -10px; */
+    /* margin-bottom: -10px; */
+}
+
+mat-toolbar-row{
+    height: 80px;
+    /* margin-top: -10px; */
+    /* margin-bottom: -10px; */
+}
+
+mat-icon{
+    padding-right:50px;
+    padding-left: 8px;
+    padding-top: 10px;
+    /* width: 30px; */
+    /* height: 30px; */
+    font-size: 30px;
+    color: black;
+    font-weight: bold;
+}
