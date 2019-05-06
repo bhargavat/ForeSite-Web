@@ -13,7 +13,37 @@
     <!-- <span class="example-spacer"></span> -->
     <span class = "headerStyle">FORESITE</span>
     <span class="example-spacer"></span>
+    <!-- <span><mat-icon (click)="toggleRightSidenav()">portrait</mat-icon></span> -->
+    <span><mat-icon [satPopoverAnchorFor]="p" (click)="p.toggle()">portrait</mat-icon></span>
     
+    <!-- <button [satPopoverAnchorFor]="p" (click)="p.toggle()">Toggle</button> -->
+
+    <sat-popover #p verticalAlign="below" horizontalAlign="center" lockAlignment hasBackdrop>
+      <div class="vspacer"></div>
+        <ul class="popover_wrapper">
+            <li>
+                <span>Sign in as ttx0627</span>
+            </li>
+
+            <li>
+              <a [routerLink]="['/edit-profile']">
+                <span>Your profile</span>
+              </a>
+            </li>
+
+            <li>
+                <span (click)="onLogout()">Logout</span>
+            </li>
+            <!-- <span class = "text_logout" (click)="onLogout()">Logout</span> -->
+        </ul>
+    </sat-popover>
+
+
+    
+    
+    <!-- <span class = "text1" (click)="toggleRightSidenav()">Username</span>
+    <span class="spacer"></span>
+    <span class = "text_logout" (click)="onLogout()">Logout</span> -->
   <!-- </mat-toolbar-row> -->
 
 </mat-toolbar>

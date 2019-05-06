@@ -14,56 +14,76 @@
 </div> -->
 
 <div class="row">
-  <!-- <app-sidebar></app-sidebar> -->
-
-  <!-- <div class="sidenav">
-  <div class="btn-group-vertical" role="group" aria-label="Basic example">
-      <button type="button" class="btn btn-secondary">Home</button>
-      <button type="button" class="btn btn-secondary">My Event</button>
-      <button type="button" class="btn btn-secondary">Create Event</button>
-  </div>
-</div> -->
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 
   <mat-sidenav-container class="example-container">
-    <mat-sidenav #sidenav mode = "push" [(opened)]= "open" class = "sidebar">
+    <mat-sidenav #sidenav mode = "push" class = "sidebar">
   
     <ul>
-      <li>
-        <a [routerLink]="['/main/test']">
+      <li class="fList">
+        <a [routerLink]="['/test']">
           <span><i class="fas fa-home"></i></span>
           <span>Home</span>
         </a>
       </li>
 
-      <li>
-          <a [routerLink]="['/main/test']">
-            <span><i class="fas fa-calendar-alt"></i></span>
-            <span>My Event</span>
-          </a>
-      </li>
-
-      <li>
-          <a href = "">
+      <li class="fList">
+          <a [routerLink]="['/test']">
             <span><i class="fas fa-plus-square"></i></span>
             <span>Create Event</span>
           </a>
       </li>
 
-      <li>
-          <a href = "">
-            <span><i class="fas fa-heart"></i></span>
-            <span>Wishlist</span>
+      <li class="fList">
+          <a [routerLink]="['/test']">
+            <span><i class="fas fa-calendar-alt"></i></span>
+            <span>My Events</span>
           </a>
+            <ul class="sublist">
+                <li>
+                    <a [routerLink]="['/test']">
+                      <span>Event1</span>
+                    </a>
+                </li>
+    
+                <li>
+                    <a [routerLink]="['/']">
+                      <span>Event2</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a [routerLink]="['/test']">
+                      <span>Event3</span>
+                    </a>
+                </li>
+              </ul>
+          
       </li>
 
+
+        
     </ul>
 
     
   </mat-sidenav>
-
+  
   <mat-sidenav-content>
+      <!-- <h4>Positional</h4>
+      <button [satPopoverAnchorFor]="p" (click)="p.toggle()">Toggle</button>
+
+    <sat-popover #p verticalAlign="below">
+      <div class="popover-wrapper">
+        Hello!
+      </div>
+    </sat-popover> -->
+      <!-- <div class="form-group">
+        <label>Popover placement</label>
+        <select class="form-control" ng-model="placement.selected" ng-options="o as o for o in placement.options"></select>
+      </div>
+      <button popover-placement="{{placement.selected}}" uib-popover="On the {{placement.selected}}" type="button" class="btn btn-default">Popover {{placement.selected}}</button> -->
+
     <!-- <h2 class = "content-style">Welcome to Foresite！</h2> -->
     <!-- <p><mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox></p>
     <p><button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button></p> -->
@@ -75,7 +95,15 @@
     <!-- <app-home></app-home> -->
   <!-- <mat-icon (click)="sidenav.toggle()">dehaze</mat-icon> -->
   <router-outlet></router-outlet>    
+  <!-- <span><mat-icon (click)="sidenav.toggle()">dehaze</mat-icon></span>
+  <span><mat-icon (click)="rightsidenav.toggle()">dehaze</mat-icon></span> -->
   </mat-sidenav-content>
+
+  <mat-sidenav #rightsidenav mode = "side" position = "end" class = "rightsidebar">
+  <p>Profile</p>
+  <span class = "text_logout" (click)="onLogout()">Logout</span>
+  </mat-sidenav> 
+
   </mat-sidenav-container>
 
   

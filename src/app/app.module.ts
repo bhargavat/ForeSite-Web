@@ -4,6 +4,10 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {RouterModule, Routes} from '@angular/router';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 //custom components and modules
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,15 +17,21 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AlertComponent } from './alert/alert.component';
 import { AppTestComponent } from './components/app-test/app-test.component';
+import { AppProfileComponent } from './components/app-profile/app-profile.component';
 import { AppTopbarComponent } from './components/app-topbar/app-topbar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatNativeDateModule, MatCheckboxModule} from '@angular/material';
+import {MatDatepickerModule,MatNativeDateModule, MatCheckboxModule} from '@angular/material';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 // import {DemoMaterialModule} from './material-module';
 import {MatIconModule} from '@angular/material/icon'
 import { SidenavService } from './app-main/sidenav.service';
+import { RightSidenavService } from './app-main/rightsidenav.service';
 import { AppMainComponent } from './app-main/app-main.component';
+import { AuthGuard } from './components/auth/auth.guard';
+import { AuthService } from './components/auth/auth.service';
+'@angular/platform-browser/animations';
+import { SatPopoverModule } from '@ncstate/sat-popover';
 
 // const routes: Routes = [
 // ];
@@ -36,8 +46,9 @@ const routes: Routes = [
     RegisterComponent,
     AlertComponent,
     AppTestComponent,
+    AppProfileComponent,
     AppTopbarComponent,
-    AppMainComponent,
+    AppMainComponent
   ],
   imports: [
     BrowserModule,
@@ -51,11 +62,20 @@ const routes: Routes = [
     MatNativeDateModule,
     ReactiveFormsModule,
     MatIconModule,
+    SatPopoverModule,
+    ReactiveFormsModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatDatepickerModule, 
+    MatNativeDateModule,
     RouterModule.forRoot(routes),
   ],
   // entryComponents: [AppSidebarComponent],
   entryComponents: [AppComponent],
-  providers: [SidenavService],
+  providers: [SidenavService, RightSidenavService, AuthService, AuthGuard],
   // bootstrap: [AppComponent, AppSidebarComponent]
   bootstrap: [AppComponent]
 })

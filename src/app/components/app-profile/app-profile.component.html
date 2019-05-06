@@ -1,0 +1,111 @@
+ <div class = "row">
+    <div class = "col-2">
+        <h3>{{ getTitle() }}</h3>
+        <div class="profilePic">
+            <img [src]="imageUrl" width="150">
+        </div>
+        <input type = "file" (change) = "onFileSelected($event)">
+        <button type = "button" (click) = "onUpload()">Upload</button>
+        <!-- <label class="image-upload-container btn btn-bwm">
+            <span>Select Image</span>
+            <input #imageInput
+                  type="file"
+                  accept="image/*"
+                  (change)="processFile(imageInput)">
+        </label> -->
+    </div>
+  
+    <div class = "col-10">
+        <form class="form" #f1="ngForm">
+
+          <div class="form-group">
+              <label for="username">User Name</label>
+              <input type="text" class="form-control" id="username" name="username" [(ngModel)] = "contact.username">
+          </div>
+
+          <div class="form-group">
+            <label for="firstname">Firstname</label>
+            <input type="text" class="form-control" id="firstname" #firstname="ngModel" 
+              required minlength="3" maxlength="15"
+              name="firstname" [(ngModel)]="contact.firstname">
+        
+            <div class="err" *ngIf="firstname.dirty && firstname.invalid">
+              <div *ngIf="firstname.errors['required']">Firstname is required</div>
+              <div *ngIf="firstname.errors['minlength']">Please enter at least 3 letters for firstname</div>
+            </div>
+          </div>
+        
+          <div class="form-group">
+            <label for="lastname">Lastname</label>
+            <input type="text" class="form-control" id="lastname" name="lastname" [(ngModel)] = "contact.lastname">
+          </div>
+        
+        
+          <div class="form-group">
+            <label>Gender  </label>
+            <label><input type="radio" name="gender" value="  Male" [(ngModel)] = "contact.gender"> Male </label>
+            
+            <label><input type="radio" name="gender" value="  Female" [(ngModel)] = "contact.gender"> Female </label>
+          </div>
+        
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="text" class="form-control" 
+              #email="ngModel"  required
+            id="email" name="email" [(ngModel)] = "contact.email">
+        
+            <div class="err" *ngIf="email.dirty && email.invalid">
+              <div *ngIf="email.errors['required']">Email address is required</div>
+            </div>
+          </div>
+        
+        
+          <div class="form-group">
+            <label for="phone">Phone number</label>
+            <input type="text" class="form-control" 
+              #phone="ngModel" required pattern="\d{10,12}"
+              id="phone" name="phone" [(ngModel)] = "contact.phone">
+        
+              <div class="err" *ngIf="phone.dirty && phone.invalid">
+                <div *ngIf="phone.errors['required']">Phone number is required</div>
+                <div *ngIf="phone.errors['pattern']">Please input 10 to 12 digits for phone</div>
+              </div>
+          </div>
+        
+        
+          <!-- <div class="form-group">
+              <label for="dob">Date of birth</label>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+              <input class="form-control" matInput [matDatepicker]="picker" placeholder="" id="dob" name="dob" [(ngModel)] = "contact.dob">
+              
+          </div>
+        -->
+
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" class="form-control" id="city" name="city" [(ngModel)] = "contact.city">
+          </div>
+        
+        
+          <div class="form-group">
+            <label for="state">State</label>
+            <input type="text" class="form-control" id="state" name="state" [(ngModel)] = "contact.state">
+          </div>
+        
+        
+          <div class="form-group">
+            <label for="country">Zip</label>
+            <input type="text" class="form-control" id="country" name="country" [(ngModel)] = "contact.country">
+          </div>
+        
+        
+          <!-- <div class="form-group">
+            <label for="picture">Picture (URL)</label>
+            <input type="text" class="form-control" id="picture" name="picture" [(ngModel)] = "contact.picture">
+          </div>-->
+        
+          <button class="btn btn-{{f1.invalid ? 'danger': 'primary'}}" [disabled]="f1.invalid" (click)="addContact()">Save Profile</button> 
+        </form>
+  </div>
+</div>

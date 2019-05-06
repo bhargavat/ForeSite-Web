@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 // import { AppSidebarComponent } from '../app-sidebar/app-sidebar.component';
 import { SidenavService } from '../../app-main/sidenav.service';
+import { RightSidenavService } from '../../app-main/rightsidenav.service';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-topbar',
@@ -9,16 +11,23 @@ import { SidenavService } from '../../app-main/sidenav.service';
 })
 export class AppTopbarComponent implements OnInit {
 
-  constructor(private sidenav: SidenavService) {
+  constructor(private authService: AuthService, private sidenav: SidenavService, private rightsidenav: RightSidenavService) {
 
   }
 
  toggleSidenav() {
-   //this.toggleActive = !this.toggleActive;
    this.sidenav.toggle();
  }
 
+ toggleRightSidenav() {
+  this.rightsidenav.toggle();
+}
+
   ngOnInit() {
+  }
+
+  onLogout() {
+    this.authService.logout();
   }
 
 }

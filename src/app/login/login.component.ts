@@ -3,6 +3,9 @@ import { ApiService } from '../services/api.service';
 import { AlertService } from '../services/alert.service';
 import { User, LoginResponse } from '../models/user';
 import { Router} from '@angular/router';
+import { AuthService } from '../components/auth/auth.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-login',
@@ -17,7 +20,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     public rest: ApiService, 
-    private alertService: AlertService
+    private alertService: AlertService,
+    private authService: AuthService
     ) {}
   resp: LoginResponse;
   message: any;
@@ -26,6 +30,8 @@ export class LoginComponent implements OnInit {
 
   //When login button is clicked
   onSubmit = function(user:string){
+    console.log("Test");
+    this.authService.login(user);
     console.log(typeof this.model)
     //let input: string = JSON.stringify(this.model);
     //let response: any = this.rest.login(this.model)

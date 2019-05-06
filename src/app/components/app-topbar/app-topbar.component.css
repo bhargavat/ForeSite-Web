@@ -21,8 +21,6 @@
 mat-toolbar{
     height: 80px;
     background-color:rgb(227, 245, 245);
-    /* margin-top: -10px; */
-    /* margin-bottom: -10px; */
 }
 
 mat-toolbar-row{
@@ -40,4 +38,54 @@ mat-icon{
     font-size: 30px;
     color: black;
     font-weight: bold;
+}
+
+.text1{
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    vertical-align: middle;
+}
+
+.text_logout{
+    color: red;
+    font-weight: bold;
+    font-size: 20px;
+    vertical-align: middle;
+}
+
+.hspacer {
+    width: 10px;
+  }
+
+.vspacer {
+    height: 40px;
+  }
+
+.popover_wrapper{
+    width:170px;
+    text-align: left;
+    padding-right:10px;
+    background-color: white;
+    margin-left: 0;
+    margin-block-start: 0;
+    padding-left: 15px;
+}
+
+
+li{
+    margin-left: 0;
+    margin-block-start: 0;
+    width: 100%;
+    text-align: left;
+    color:black;
+    list-style-type:none;
+    padding: 15px 0px;
+    border-bottom: 1px solid rgba(100,100,100,0.3);
+    transition: 0.5s;
+} 
+
+.text_logout{
+    font-size: 10px;
+    color: black;
 }
