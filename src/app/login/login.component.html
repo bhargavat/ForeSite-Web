@@ -12,19 +12,32 @@
           <!-- <router-outlet></router-outlet> -->
       </div>
       <!-- Login Form -->
-      <form (ngSubmit)="onSubmit()">
+      <!-- <form (ngSubmit)="onSubmit()">
         <input type="text" id="login" class="fadeIn second" name="login" [(ngModel)]="model.user_name" #user_name="ngModel" placeholder="Username">
         <input type="password" id="password" class="fadeIn third" name="login" [(ngModel)]="model.password" #password="ngModel" placeholder="Password">
-        
+         -->
 
         <!-- <div *ngIf="submitted && !success">
             Login Failed
         </div> -->
 
-        <input routerLink="/" type="submit" class="fadeIn fourth" value="Log In">
+        <!-- <input routerLink="/" type="submit" class="fadeIn fourth" value="Log In">
+
+      </form> -->
+  
+      <form [formGroup]="form" (ngSubmit) = "onSubmit()">
+      <!-- <form (ngSubmit) = "onSumbit()"> -->
+          <!-- <input matInput placeholder="Username" class="fadeIn second" formControlName="userName" required> -->
+          <!-- <input type="text" id="login" class="fadeIn second" name="login" [(ngModel)]="model.user_name" #user_name="ngModel" placeholder="Username">
+          <input type="password" id="password" class="fadeIn third" name="login" [(ngModel)]="model.password" #password="ngModel" placeholder="Password"> -->
+
+          <input type="text" id="login" class="fadeIn second" name="login" placeholder="Username" formControlName = "userName">
+          <input type="password" id="password" class="fadeIn third" name="login" placeholder="Password" formControlName = "password">
+
+          <button mat-raised-button type = "submit" class="fadeIn fourth" >Login</button>
+        <!-- <input routerLink="/" type="submit" class="fadeIn fourth" value="Log In"> -->
 
       </form>
-  
       <!-- Register and Forgot password-->
       <div id="formFooter">
         <a class="underlineHover" routerLink="/register">New User? Create an Account</a><br>

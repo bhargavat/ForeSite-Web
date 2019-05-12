@@ -13,11 +13,15 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  form: FormGroup;
   logo_src = 'assets/img/labeled-foresite-300.png';
   submitted = false;
   success = false;
-  model: any = {};
+  // model: any = {};
+  
+
   constructor(
+    private fb: FormBuilder,
     private router: Router,
     public rest: ApiService, 
     private alertService: AlertService,
@@ -25,39 +29,48 @@ export class LoginComponent implements OnInit {
     ) {}
   resp: LoginResponse;
   message: any;
+
   ngOnInit() {
+    this.form = this.fb.group({
+      userName:['', Validators.required],
+      password:['', Validators.required]
+    })
   }
 
+
+  onSubmit() {
+    this.authService.login(this.form.value);
+  }
   //When login button is clicked
-  onSubmit = function(user:string){
-    console.log("Test");
-    this.authService.login(user);
-    console.log(typeof this.model)
-    //let input: string = JSON.stringify(this.model);
-    //let response: any = this.rest.login(this.model)
-    //console.log("response: " + Object.keys(response))
-    this.rest.login(this.model).subscribe(
-      data => { 
-        this.success = true;
-        // console.log("hihi" + this.alertService)
-        // console.log('response: ' + data.response)
+  // onSubmit = function(user:string){
+  //   console.log("Test");
+  //   this.authService.login(user);
+  //   console.log(typeof this.model)
+  //   //let input: string = JSON.stringify(this.model);
+  //   //let response: any = this.rest.login(this.model)
+  //   //console.log("response: " + Object.keys(response))
+  //   this.rest.login(this.model).subscribe(
+  //     data => { 
+  //       this.success = true;
+  //       // console.log("hihi" + this.alertService)
+  //       // console.log('response: ' + data.response)
 
-        if(data.response == 'success'){
-          this.router.navigate(['/home'])
-        }
-        if(data.response == 'fail'){
-          this.alertService.error("Login Failed")
-        }
-        console.log(data.response) // Data which is returned by call
-      },
+  //       if(data.response == 'success'){
+  //         this.router.navigate(['/home'])
+  //       }
+  //       if(data.response == 'fail'){
+  //         this.alertService.error("Login Failed")
+  //       }
+  //       console.log(data.response) // Data which is returned by call
+  //     },
 
-      error => { 
-        console.log(error.response);
-        this.alertService.error(error);
-        console.log(error); // Error if any
-      }
-    )
-    //alert("Response: " + Object.keys(my_user))
-    //alert(JSON.stringify(this.model))
-  }
+  //     error => { 
+  //       console.log(error.response);
+  //       this.alertService.error(error);
+  //       console.log(error); // Error if any
+  //     }
+  //   )
+  //   //alert("Response: " + Object.keys(my_user))
+  //   //alert(JSON.stringify(this.model))
+  // }
 }
