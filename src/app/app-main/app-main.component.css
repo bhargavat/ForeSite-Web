@@ -1,6 +1,6 @@
 mat-sidenav{
     height: 100%;
-    width: 15%;
+    width: 240px;
     margin: 0px;
     padding:0px;
     font-family: sans-serif;
@@ -29,24 +29,26 @@ ul{
 } 
 
 .sublist{
-    padding-left: 50px;
+    font-size: 15px;
+    padding-left: 20px;
     list-style-type:none;
-    color: black;
+    color: rgb(39, 36, 36);
 }
 
 ul li a {
     display: block;
     color:black;
 }
+
 ul li a span{
     display: inline-block;
     padding: 10px;
 }
 
 ul li a span:nth-child(1){
-    width:30px;
-    text-align:center;
-    padding: 10px;
+    /* width:30px; */
+    /* text-align:center; */
+    /* padding: 10px; */
     transition: 0.5s;
     color:black;
 }

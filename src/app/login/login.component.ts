@@ -39,7 +39,9 @@ export class LoginComponent implements OnInit {
 
 
   onSubmit() {
-    this.authService.login(this.form.value);
+    if (this.authService.login(this.form.value) == false){
+      this.alertService.error("Login Failed!!");
+    }
   }
   //When login button is clicked
   // onSubmit = function(user:string){

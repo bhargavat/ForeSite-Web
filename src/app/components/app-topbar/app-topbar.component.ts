@@ -14,7 +14,7 @@ export class AppTopbarComponent implements OnInit {
   constructor(private authService: AuthService, private sidenav: SidenavService, private rightsidenav: RightSidenavService) {
 
   }
-
+ userName = this.authService.getUsername();
  toggleSidenav() {
    this.sidenav.toggle();
  }

@@ -13,6 +13,7 @@ const getEventUrl = '/foresite/getUserCreatedEvents';
 @Injectable({
   providedIn: 'root'
 })
+
 export class EventService {
 
   constructor(private http: HttpClient) { }

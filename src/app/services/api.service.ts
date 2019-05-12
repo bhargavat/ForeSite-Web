@@ -35,7 +35,7 @@ export class ApiService {
     let req = JSON.stringify(user)
     console.log("user: "+req);
     //return this.http.post(apiURL+'foresite/login', req, httpOptions).pipe(map((response: Response) => response.json);
-    return this.http.post<string>(apiURL+'foresite/createUser', req, httpOptions)
+    return this.http.post<string>('/foresite/createUser', req, httpOptions)
     .pipe(
       catchError(this.handleError('login', user))
     );
