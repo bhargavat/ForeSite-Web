@@ -1,20 +1,41 @@
-<div>
+<div class = "row">
+  <div class = "col-9">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-  <h1>
-      <span><i class="fas fa-chevron-left"></i></span>
-      &nbsp;&nbsp;&nbsp;&nbsp;{{event_info.title}}
-  </h1>
+    <div class = "title">
+      <h2>
+        <span><i class="fas fa-chevron-left"></i></span>
+          &nbsp;&nbsp;&nbsp;&nbsp;{{event_info.title}}
+      </h2>
+    </div>
+
     <div>
-      <h4>Date</h4>
+      <h4 class = "subtitle">
+        <span><i class="fas fa-calendar-day"></i></span>
+        &nbsp;&nbsp;Date
+      </h4>
       <p><b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  From:</b> {{event_info.start_date_time_formatted}}</p>
       <p><b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  To:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> {{event_info.end_date_time_formatted}}</p>
     </div>
+
     <div>
-      <h4>Location</h4>
+      <h4 class = "subtitle">
+        <span><i class="fas fa-location-arrow"></i></span>
+        &nbsp;&nbsp;Location
+      </h4>
       <p>{{event_info.location2}}</p>
     </div>
+
     <div>
-      <h4>Event Details</h4>
+      <h4 class = "subtitle">
+        <span><i class="fas fa-info-circle"></i></span> 
+        &nbsp;&nbsp;Event Details
+      </h4>
       <p>{{event_info.details}}</p>
     </div>
+  </div>
+
+  <div class = "col-3">
+      <button type="button" class="btn btn-primary">Registration Metrix</button>
+  </div>
+
 </div>
