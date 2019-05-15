@@ -41,6 +41,7 @@ export class CreateComponent implements OnInit {
   start_time = { hour: 13, minute: 30 };
   end_time = { hour: 13, minute: 30 };
   meridian = true;
+  survey = [];
 
   hoveredDate: NgbDate;
 
@@ -58,9 +59,25 @@ export class CreateComponent implements OnInit {
 
   ngOnInit() {}
 
-  onSubmit(form: NgForm): void {
-    // alert(JSON.stringify(this.start_date));
-    alert(JSON.stringify(this.event));
+  addAnswer(s) {
+    var item = {
+      answer: ""
+    };
+    s.answers.push(item);
+  }
+
+  addSurvey() {
+    var item = {
+      question: "",
+      type: "singleChoice",
+      answers: []
+    };
+    this.survey.push(item);
+  }
+
+  onSubmit() {
+    alert(JSON.stringify(this.survey));
+    // alert(JSON.stringify(this.event));
   }
 
   onDateSelection(date: NgbDate) {
