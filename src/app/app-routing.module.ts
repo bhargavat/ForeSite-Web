@@ -10,16 +10,18 @@ import { AppProfileComponent } from './components/app-profile/app-profile.compon
 import { AppMainComponent } from './app-main/app-main.component';
 import { AuthGuard } from './components/auth/auth.guard';
 import { EventComponent } from './components/event/event.component';
+import { CreateComponent } from "./create/create.component";
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     component: AppMainComponent,
     canActivate: [AuthGuard],
     children: [
       { path: 'test', component: AppTestComponent },
       { path: 'edit-profile', component: AppProfileComponent },
       { path: 'event/:event_id', component: EventComponent},
+      { path: "create", component: CreateComponent },
     ]
   },
 
@@ -38,4 +40,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
