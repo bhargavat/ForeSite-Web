@@ -55,6 +55,7 @@ const routes: Routes = [];
     AppTopbarComponent,
     AppMainComponent,
     EventComponent,
+    CreateComponent,
   ],
   imports: [
     BrowserModule,
