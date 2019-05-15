@@ -42,7 +42,7 @@
           </a>
             <ul class="sublist">
                 <li *ngFor = "let event of eventList">
-                    <a [routerLink]="['/test']">
+                    <a [routerLink]="['/event', event.event_id]">
                       <span>{{event.title}}</span>
                     </a>
                 </li>

@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {RouterModule, Routes} from '@angular/router';
+import {RouterModule, Routes, ActivatedRoute} from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -32,6 +32,7 @@ import { AuthGuard } from './components/auth/auth.guard';
 import { AuthService } from './components/auth/auth.service';
 '@angular/platform-browser/animations';
 import { SatPopoverModule } from '@ncstate/sat-popover';
+import { EventComponent } from './components/event/event.component';
 
 // const routes: Routes = [
 // ];
@@ -48,7 +49,8 @@ const routes: Routes = [
     AppTestComponent,
     AppProfileComponent,
     AppTopbarComponent,
-    AppMainComponent
+    AppMainComponent,
+    EventComponent
   ],
   imports: [
     BrowserModule,
@@ -71,6 +73,7 @@ const routes: Routes = [
     MatButtonModule,
     MatDatepickerModule, 
     MatNativeDateModule,
+    // ActivatedRoute,
     RouterModule.forRoot(routes),
   ],
   // entryComponents: [AppSidebarComponent],
