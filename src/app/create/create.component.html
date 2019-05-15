@@ -1,6 +1,9 @@
 <div class="row">
   <div class="col-10">
     <form class="form" #form="ngForm">
+      <h1>
+        Event Information
+      </h1>
       <div class="form-group">
         <label for="title">Title</label>
         <input
@@ -54,6 +57,22 @@
         />
       </div>
 
+      <div class="form-group">
+        <label for="description">Description</label>
+        <br />
+        <textarea
+          rows="6"
+          cols="100"
+          name="description"
+          [(ngModel)]="event.description"
+        >
+        </textarea>
+      </div>
+
+      <h1>
+        Event Date
+      </h1>
+
       Start and End Date
       <br />
       <ngb-datepicker
@@ -93,18 +112,9 @@
         name="endTime"
       ></ngb-timepicker>
 
-      <div class="form-group">
-        <label for="description">Description</label>
-        <br />
-        <textarea
-          rows="6"
-          cols="100"
-          name="description"
-          [(ngModel)]="event.description"
-        >
-        </textarea>
-      </div>
-
+      <h1>
+        Ticket Settings
+      </h1>
       <div class="form-group">
         <label for="max_purchase_quantity">Max Purchase Quantity</label>
         <input
@@ -141,8 +151,11 @@
         />
       </div>
 
+      <h1>
+        Survey
+      </h1>
       <div *ngFor="let s of survey; let i = index">
-        <form>
+        <form class="surveyQuestion">
           <label>Question {{ i + 1 }}: </label>
           <br />
           <input type="text" name="question" [(ngModel)]="s.question" /><br />
@@ -168,6 +181,7 @@
 
       <br />
       <button
+        style="margin-top: 10px;"
         (click)="onSubmit()"
         class="btn btn-{{ form.invalid ? 'danger' : 'primary' }}"
         [disabled]="form.invalid"

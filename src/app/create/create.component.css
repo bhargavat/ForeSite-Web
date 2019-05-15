@@ -115,3 +115,8 @@ li {
 .mat-drawer-container {
   color: black !important;
 }
+.surveyQuestion {
+  background-color: #007bff4f;
+  padding: 5px 5px 5px 5px;
+  margin-bottom: 15px;
+}
