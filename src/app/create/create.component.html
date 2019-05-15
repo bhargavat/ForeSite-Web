@@ -93,6 +93,51 @@
         name="endTime"
       ></ngb-timepicker>
 
+      <div class="form-group">
+        <label for="description">Description</label>
+        <br />
+        <textarea
+          rows="6"
+          cols="100"
+          name="description"
+          [(ngModel)]="event.description"
+        >
+        </textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="max_purchase_quantity">Max Purchase Quantity</label>
+        <input
+          type="number"
+          class="form-control"
+          id="max_purchase_quantity"
+          name="max_purchase_quantity"
+          [(ngModel)]="event.max_purchase_quantity"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="max_quantity_available">Max Quantity Available</label>
+        <input
+          type="number"
+          class="form-control"
+          id="max_quantity_available"
+          name="max_quantity_available"
+          [(ngModel)]="event.max_quantity_available"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="subtotal_price">Price Per Ticket: </label>
+        <input
+          type="number"
+          min="0.01"
+          step="0.01"
+          max="9999999"
+          [(ngModel)]="subtotal_dollars"
+        />
+      </div>
+
       <button
         class="btn btn-{{ form.invalid ? 'danger' : 'primary' }}"
         [disabled]="form.invalid"

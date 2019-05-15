@@ -27,9 +27,17 @@ export class CreateComponent implements OnInit {
     start_date: "",
     end_time: "",
     end_date: "",
-    is_tbd: 0
+    is_tbd: 0,
+    category: "",
+    description: "",
+    max_purchase_quantity: 0,
+    max_quantity_available: 0,
+    subtotal_price: 0,
+    add_ons: [],
+    survey_questions: []
   };
 
+  subtotal_dollars = 0.01;
   start_time = { hour: 13, minute: 30 };
   end_time = { hour: 13, minute: 30 };
   meridian = true;
