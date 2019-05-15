@@ -1,0 +1,117 @@
+.headerStyle {
+  /* float: right; */
+  color: black;
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-size: 30px;
+  /* background-color:black; */
+}
+
+.logoStyle {
+  height: 70px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-right: 15px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar {
+  height: 80px;
+  background-color: rgb(227, 245, 245);
+}
+
+mat-toolbar-row {
+  height: 80px;
+  /* margin-top: -10px; */
+  /* margin-bottom: -10px; */
+}
+
+mat-icon {
+  padding-right: 50px;
+  padding-left: 8px;
+  padding-top: 10px;
+  /* width: 30px; */
+  /* height: 30px; */
+  font-size: 30px;
+  color: black;
+  font-weight: bold;
+}
+
+.text1 {
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+.text_logout {
+  color: red;
+  font-weight: bold;
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+.hspacer {
+  width: 10px;
+}
+
+.vspacer {
+  height: 40px;
+}
+
+.popover_wrapper {
+  width: 170px;
+  text-align: left;
+  padding-right: 10px;
+  background-color: white;
+  margin-left: 0;
+  margin-block-start: 0;
+  padding-left: 15px;
+}
+
+li {
+  margin-left: 0;
+  margin-block-start: 0;
+  width: 100%;
+  text-align: left;
+  color: black;
+  list-style-type: none;
+  padding: 15px 0px;
+  border-bottom: 1px solid rgba(100, 100, 100, 0.3);
+  transition: 0.5s;
+}
+
+.text_logout {
+  font-size: 10px;
+  color: black;
+}
+.custom-day {
+  text-align: center;
+  padding: 0.185rem 0.25rem;
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+}
+.custom-day.focused {
+  background-color: #e6e6e6;
+}
+.custom-day.range,
+.custom-day:hover {
+  background-color: rgb(2, 117, 216);
+  color: white;
+}
+.custom-day.faded {
+  background-color: rgba(2, 117, 216, 0.5);
+}
+.ngb-dp-month-name {
+  color: black !important;
+}
+.custom-day {
+  color: black;
+}
+.mat-drawer-container {
+  color: black !important;
+}

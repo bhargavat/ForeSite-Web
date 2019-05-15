@@ -1,29 +1,31 @@
 /* Routing for page navigation is defined here
-*/
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { AppComponent } from './app.component';
-import { RegisterComponent } from './register/register.component';
-import { AppTestComponent } from './components/app-test/app-test.component';
-import { AppProfileComponent } from './components/app-profile/app-profile.component';
-import { AppMainComponent } from './app-main/app-main.component';
-import { AuthGuard } from './components/auth/auth.guard';
+ */
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { LoginComponent } from "./login/login.component";
+import { AppComponent } from "./app.component";
+import { RegisterComponent } from "./register/register.component";
+import { AppTestComponent } from "./components/app-test/app-test.component";
+import { AppProfileComponent } from "./components/app-profile/app-profile.component";
+import { AppMainComponent } from "./app-main/app-main.component";
+import { AuthGuard } from "./components/auth/auth.guard";
+import { CreateComponent } from "./create/create.component";
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     component: AppMainComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: 'test', component: AppTestComponent },
-      { path: 'edit-profile', component: AppProfileComponent },
+      { path: "test", component: AppTestComponent },
+      { path: "edit-profile", component: AppProfileComponent },
+      { path: "create", component: CreateComponent }
     ]
   },
 
-  {path: '', component: LoginComponent},
-  {path:'login', component: LoginComponent},
-  {path:'register',component: RegisterComponent},
+  { path: "", component: LoginComponent },
+  { path: "login", component: LoginComponent },
+  { path: "register", component: RegisterComponent }
   // {path: 'test', component: AppTestComponent},
   // {path: 'main', component: AppMainComponent,
   // children: [
@@ -36,4 +38,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

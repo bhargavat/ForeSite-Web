@@ -1,0 +1,104 @@
+<div class="row">
+  <div class="col-10">
+    <form class="form" #form="ngForm" (ngSubmit)="onSubmit(form)">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          name="title"
+          [(ngModel)]="event.title"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="street">Street</label>
+        <input
+          type="text"
+          class="form-control"
+          id="street"
+          name="street"
+          [(ngModel)]="event.street"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="city">City</label>
+        <input
+          type="text"
+          class="form-control"
+          id="city"
+          name="city"
+          [(ngModel)]="city"
+        />
+      </div>
+      <div class="form-group">
+        <label for="state">State</label>
+        <input
+          type="text"
+          class="form-control"
+          id="state"
+          name="state"
+          [(ngModel)]="event.state"
+        />
+      </div>
+      <div class="form-group">
+        <label for="zip_code">Zip Code</label>
+        <input
+          type="text"
+          class="form-control"
+          id="zip_code"
+          name="zip_code"
+          [(ngModel)]="zip_code"
+        />
+      </div>
+
+      Start and End Date
+      <br />
+      <ngb-datepicker
+        #dp
+        (select)="onDateSelection($event)"
+        [displayMonths]="2"
+        [dayTemplate]="t"
+        outsideDays="hidden"
+      >
+      </ngb-datepicker>
+
+      <ng-template #t let-date let-focused="focused">
+        <span
+          class="custom-day"
+          [class.focused]="focused"
+          [class.range]="isRange(date)"
+          [class.faded]="isHovered(date) || isInside(date)"
+          (mouseenter)="hoveredDate = date"
+          (mouseleave)="hoveredDate = null"
+        >
+          {{ date.day }}
+        </span>
+      </ng-template>
+
+      <br />
+      <label for="startTime">Start Time</label>
+      <ngb-timepicker
+        [(ngModel)]="start_time"
+        [meridian]="meridian"
+        name="startTime"
+      ></ngb-timepicker>
+
+      <label for="endTime">End Time</label>
+      <ngb-timepicker
+        [(ngModel)]="end_time"
+        [meridian]="meridian"
+        name="endTime"
+      ></ngb-timepicker>
+
+      <button
+        class="btn btn-{{ form.invalid ? 'danger' : 'primary' }}"
+        [disabled]="form.invalid"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
