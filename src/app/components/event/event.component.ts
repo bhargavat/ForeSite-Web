@@ -63,7 +63,7 @@ export class EventComponent implements OnInit {
     info["end_date_time_formatted"] = this.parse(response["end_date"], response["end_time"]);
     
     info["location2"] =  response["street"] + ', ' + response["city"] + ', ' + 
-                        response["state"] + ", " + response["zip_code"];
+                        response["state"] + ", " + response["zip_code"]; 
     info["details"] = response["description"];
   }
 
