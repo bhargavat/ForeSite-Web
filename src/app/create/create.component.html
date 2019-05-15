@@ -179,6 +179,29 @@
       </div>
       <button (click)="addSurvey()">Add New Question</button>
 
+      <h1>
+        Add Ons
+      </h1>
+      <div *ngFor="let a of addOns; let i = index">
+        <form class="surveyQuestion">
+          <label>Add On {{ i + 1 }}: </label>
+          <br />
+          Name:
+          <input type="text" name="name" [(ngModel)]="a.name" />
+          Price:
+          <input
+            type="number"
+            name="price"
+            min="0.01"
+            step="0.01"
+            max="9999999"
+            [(ngModel)]="a.price"
+          /><br />
+          <br />
+        </form>
+      </div>
+      <button (click)="addAddOn()">Add New Addon</button>
+
       <br />
       <button
         style="margin-top: 10px;"

@@ -42,6 +42,7 @@ export class CreateComponent implements OnInit {
   end_time = { hour: 13, minute: 30 };
   meridian = true;
   survey = [];
+  addOns = [];
 
   hoveredDate: NgbDate;
 
@@ -58,6 +59,14 @@ export class CreateComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  addAddOn() {
+    var item = {
+      name: "",
+      price: 0
+    };
+    this.addOns.push(item);
+  }
 
   addAnswer(s) {
     var item = {
