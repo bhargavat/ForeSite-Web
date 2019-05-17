@@ -9,6 +9,7 @@ import { NgForm } from "@angular/forms";
 import { NgbDate, NgbCalendar } from "@ng-bootstrap/ng-bootstrap";
 import { AuthService } from "../components/auth/auth.service";
 import { CreateService } from "../services/create.service";
+import { eventListService } from "../services/eventListService";
 
 @Component({
   selector: "app-create",
@@ -59,7 +60,8 @@ export class CreateComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private authService: AuthService,
     private createService: CreateService,
-    calendar: NgbCalendar
+    calendar: NgbCalendar,
+    private commonEventList: eventListService
   ) {
     this.fromDate = calendar.getToday();
     this.toDate = calendar.getNext(calendar.getToday(), "d", 10);
@@ -132,6 +134,8 @@ export class CreateComponent implements OnInit {
       if (response.response === "success") {
         this.event_id = response.event_id;
         console.log(this.event_id);
+        this.commonEventList.getEvent();
+        this.router.navigateByUrl("/event/" + this.event_id);
       }
     });
   }
