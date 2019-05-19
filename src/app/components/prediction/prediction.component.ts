@@ -13,7 +13,9 @@ import { Label } from "ng2-charts";
 export class PredictionComponent implements OnInit {
   info = {
     attendance_prediction: 0,
-    attendance_total: 0
+    attendance_total: 0,
+    add_ons: [],
+    add_ons_total: []
   };
   barChartOptions: ChartOptions = {
     responsive: true,
@@ -30,7 +32,7 @@ export class PredictionComponent implements OnInit {
       ]
     }
   };
-  barChartLabels: Label[] = ["Attendance Prediction"];
+
   barChartType: ChartType = "bar";
   barChartLegend = true;
 
@@ -39,7 +41,11 @@ export class PredictionComponent implements OnInit {
     { data: [28, 48, 40, 19, 86, 27, 90], label: "Series B" }
   ];
 
+  attendanceLabels: Label[] = ["Attendance Prediction"];
+  addOnLabels: Label[] = [""];
+
   attendance_prediction: ChartDataSets[] = [{ data: [0], label: "" }];
+  add_ons_prediction: ChartDataSets[] = [{ data: [0], label: "" }];
 
   constructor(
     private route: ActivatedRoute,
@@ -68,7 +74,40 @@ export class PredictionComponent implements OnInit {
     attend_pred.data.push(this.info.attendance_prediction);
     this.attendance_prediction.push(attend_total);
     this.attendance_prediction.push(attend_pred);
-    console.log(this.attendance_prediction);
+
+    // Add On Prediction
+    let add_on_total = [];
+    let add_on_pred = [];
+    let labels = [];
+    for (let a of this.info.add_ons) {
+      this.add_on_create_data(add_on_total, add_on_pred, labels, a.name);
+    }
+    this.add_ons_prediction = [];
+    let addOnTotal = {
+      data: add_on_total,
+      label: "Total"
+    };
+    let addOnPred = {
+      data: add_on_pred,
+      label: "Expected"
+    };
+    this.add_ons_prediction.push(addOnTotal);
+    this.add_ons_prediction.push(addOnPred);
+    this.addOnLabels = labels;
+  }
+
+  add_on_create_data(add_on_total, add_on_pred, labels, name) {
+    labels.push(name);
+    for (let a of this.info.add_ons) {
+      if (a.name == name) {
+        add_on_pred.push(a.quantity);
+      }
+    }
+    for (let a of this.info.add_ons_total) {
+      if (a.name == name) {
+        add_on_total.push(a.quantity);
+      }
+    }
   }
 
   public randomize(): void {
@@ -90,5 +129,7 @@ export class PredictionComponent implements OnInit {
   collect_response(info: any, response: any) {
     info["attendance_prediction"] = response["attendance_prediction"];
     info["attendance_total"] = response["attendance_total"];
+    info["add_ons"] = response["add_ons"];
+    info["add_ons_total"] = response["add_ons_total"];
   }
 }

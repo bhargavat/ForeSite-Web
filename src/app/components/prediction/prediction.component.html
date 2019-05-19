@@ -4,7 +4,18 @@
     <canvas
       baseChart
       [datasets]="attendance_prediction"
-      [labels]="barChartLabels"
+      [labels]="attendanceLabels"
+      [options]="barChartOptions"
+      [legend]="barChartLegend"
+      [chartType]="barChartType"
+    ></canvas>
+  </div>
+  <h1>Add Ons</h1>
+  <div style="display: block; height:50%; width: 60%">
+    <canvas
+      baseChart
+      [datasets]="add_ons_prediction"
+      [labels]="addOnLabels"
       [options]="barChartOptions"
       [legend]="barChartLegend"
       [chartType]="barChartType"
