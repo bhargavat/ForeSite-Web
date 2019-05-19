@@ -38,8 +38,10 @@ import { AuthService } from "./components/auth/auth.service";
 import { SatPopoverModule } from "@ncstate/sat-popover";
 import { EventComponent } from "./components/event/event.component";
 import { CreateComponent } from "./create/create.component";
+
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { eventListService } from "./services/eventListService";
+import { PredictionComponent } from "./components/prediction/prediction.component";
 
 // const routes: Routes = [
 // ];
@@ -56,7 +58,8 @@ const routes: Routes = [];
     AppTopbarComponent,
     AppMainComponent,
     EventComponent,
-    CreateComponent
+    CreateComponent,
+    PredictionComponent
   ],
   imports: [
     BrowserModule,

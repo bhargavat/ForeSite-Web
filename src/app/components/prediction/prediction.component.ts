@@ -5,11 +5,11 @@ import { DomSanitizer } from "@angular/platform-browser";
 import { formatDate } from "@angular/common";
 
 @Component({
-  selector: "app-event",
-  templateUrl: "./event.component.html",
-  styleUrls: ["./event.component.css"]
+  selector: "app-prediction",
+  templateUrl: "./prediction.component.html",
+  styleUrls: ["./prediction.component.css"]
 })
-export class EventComponent implements OnInit {
+export class PredictionComponent implements OnInit {
   event_info = {
     title: "",
     start_date: "",
@@ -24,8 +24,6 @@ export class EventComponent implements OnInit {
 
     details: ""
   };
-
-  event_id = "";
 
   constructor(
     private route: ActivatedRoute,
@@ -43,11 +41,11 @@ export class EventComponent implements OnInit {
     const query = {
       event_id: id
     };
-    this.event_id = id;
     this.eventService.getEventDetails(query).subscribe(response => {
       if (response.response === "success") {
         this.collect_response(this.event_info, response.results);
       }
+      console.log(this.event_info);
     });
   }
 
@@ -58,15 +56,6 @@ export class EventComponent implements OnInit {
     info["end_date"] = response["end_date"];
     info["end_time"] = response["end_time"];
 
-    info["start_date_time_formatted"] = this.parse(
-      response["start_date"],
-      response["start_time"]
-    );
-    info["end_date_time_formatted"] = this.parse(
-      response["end_date"],
-      response["end_time"]
-    );
-
     info["location2"] =
       response["street"] +
       ", " +
@@ -76,42 +65,5 @@ export class EventComponent implements OnInit {
       ", " +
       response["zip_code"];
     info["details"] = response["description"];
-  }
-
-  parse(start_date: any, start_time: any) {
-    const timestamp = Date.parse(start_date + " " + start_time);
-    const date = new Date(timestamp);
-
-    if (date.getDate() % 10 == 1 && Math.floor(date.getDate() / 10) != 1) {
-      return (
-        formatDate(date, "EEEE dd", "en-US") +
-        "st" +
-        formatDate(date, " MMMM yyyy hh:mma", "en-US")
-      );
-    } else if (
-      date.getDate() % 10 == 2 &&
-      Math.floor(date.getDate() / 10) != 1
-    ) {
-      return (
-        formatDate(date, "EEEE dd", "en-US") +
-        "nd" +
-        formatDate(date, " MMMM yyyy hh:mma", "en-US")
-      );
-    } else if (
-      date.getDate() % 10 == 3 &&
-      Math.floor(date.getDate() / 10) != 1
-    ) {
-      return (
-        formatDate(date, "EEEE dd", "en-US") +
-        "rd" +
-        formatDate(date, " MMMM yyyy hh:mma", "en-US")
-      );
-    } else {
-      return (
-        formatDate(date, "EEEE dd", "en-US") +
-        "th" +
-        formatDate(date, " MMMM yyyy hh:mma", "en-US")
-      );
-    }
   }
 }
