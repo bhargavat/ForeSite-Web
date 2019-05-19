@@ -15,8 +15,13 @@ export class PredictionComponent implements OnInit {
     attendance_prediction: 0,
     attendance_total: 0,
     add_ons: [],
-    add_ons_total: []
+    add_ons_total: [],
+    survey_prediction: [],
+    survey_prediction_total: []
   };
+
+  survey_prediction = [];
+
   barChartOptions: ChartOptions = {
     responsive: true,
     // We use these empty structures as placeholders for dynamic theming.
@@ -94,6 +99,73 @@ export class PredictionComponent implements OnInit {
     this.add_ons_prediction.push(addOnTotal);
     this.add_ons_prediction.push(addOnPred);
     this.addOnLabels = labels;
+
+    // Survey Prediction
+
+    for (let s of this.info.survey_prediction_total) {
+      if (s.type != "freeResponse") {
+        let survey_total = [];
+        let survey_pred = [];
+        let labels = [];
+        for (let ans of s.answers) {
+          for (var key in ans) {
+            this.survey_create_data(
+              survey_total,
+              survey_pred,
+              labels,
+              s.question,
+              key
+            );
+          }
+        }
+        let total = {
+          data: survey_total,
+          label: "Total"
+        };
+
+        let expected = {
+          data: survey_pred,
+          label: "Expected"
+        };
+
+        let mainObj = {
+          question: s.question,
+          labels: labels,
+          data: []
+        };
+        mainObj.data.push(total);
+        mainObj.data.push(expected);
+        this.survey_prediction.push(mainObj);
+      }
+    }
+
+    console.log(this.survey_prediction);
+  }
+
+  survey_create_data(survey_total, survey_pred, labels, question, answer) {
+    labels.push(answer);
+    for (let s of this.info.survey_prediction_total) {
+      if (s.question == question) {
+        for (let key in s.answers) {
+          for (let k in s.answers[key]) {
+            if (k == answer) {
+              survey_total.push(s.answers[key][k]);
+            }
+          }
+        }
+      }
+    }
+    for (let s of this.info.survey_prediction) {
+      if (s.question == question) {
+        for (let key in s.answers) {
+          for (let k in s.answers[key]) {
+            if (k == answer) {
+              survey_pred.push(s.answers[key][k]);
+            }
+          }
+        }
+      }
+    }
   }
 
   add_on_create_data(add_on_total, add_on_pred, labels, name) {
@@ -131,5 +203,7 @@ export class PredictionComponent implements OnInit {
     info["attendance_total"] = response["attendance_total"];
     info["add_ons"] = response["add_ons"];
     info["add_ons_total"] = response["add_ons_total"];
+    info["survey_prediction"] = response["survey_prediction"];
+    info["survey_prediction_total"] = response["survey_prediction_total"];
   }
 }
