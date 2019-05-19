@@ -42,6 +42,7 @@ import { CreateComponent } from "./create/create.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { eventListService } from "./services/eventListService";
 import { PredictionComponent } from "./components/prediction/prediction.component";
+import { ChartsModule } from "ng2-charts";
 
 // const routes: Routes = [
 // ];
@@ -84,7 +85,8 @@ const routes: Routes = [];
     MatNativeDateModule,
     // ActivatedRoute,
     RouterModule.forRoot(routes),
-    NgbModule
+    NgbModule,
+    ChartsModule
   ],
   // entryComponents: [AppSidebarComponent],
   entryComponents: [AppComponent],
