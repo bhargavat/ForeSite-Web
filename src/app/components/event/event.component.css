@@ -1,19 +1,31 @@
 .title{
     margin-top: 20px;
-    font-size: 15px;
+    color: black;
+    display: flex;
 }
 
 .subtitle{
     margin-top: 30px;
 }
+
 .col-3{
     margin-top: 30px;
 }
+
 div{
-    color: black;
     padding-left: 50px;
 }
 
 p{
     font-size: 18px;
+    padding-left: 2em;
 }
+
+/* p{
+    padding-left: 2em;
+} */
+
+.example-spacer {
+    flex-grow: 1;
+    /* flex: 1 1 auto; */
+  }

@@ -39,6 +39,7 @@ import { SatPopoverModule } from '@ncstate/sat-popover';
 import { EventComponent } from './components/event/event.component';
 import { CreateComponent } from "./create/create.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 // const routes: Routes = [
 // ];
@@ -56,6 +57,7 @@ const routes: Routes = [];
     AppMainComponent,
     EventComponent,
     CreateComponent,
+    HomepageComponent,
   ],
   imports: [
     BrowserModule,
