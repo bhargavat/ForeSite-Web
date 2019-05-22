@@ -93,6 +93,18 @@ export class CreateComponent implements OnInit {
     this.survey.push(item);
   }
 
+  removeAddOn(i) {
+    this.addOns.splice(i, 1);
+  }
+
+  removeAnswer(s, i) {
+    s.answers.splice(i, 1);
+  }
+
+  removeQuestion(s, i) {
+    this.survey.splice(i, 1);
+  }
+
   onSubmit() {
     this.event["user_name"] = this.authService.getUsername();
 
