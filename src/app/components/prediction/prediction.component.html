@@ -12,16 +12,26 @@
   </div>
   <h1>Survey</h1>
   <div *ngFor="let survey of survey_prediction">
-    <h3 style="font-size: 20px;">{{ survey.question }}</h3>
-    <div style="display: block; height:50%; width: 60%">
-      <canvas
-        baseChart
-        [datasets]="survey.data"
-        [labels]="survey.labels"
-        [options]="barChartOptions"
-        [legend]="barChartLegend"
-        [chartType]="barChartType"
-      ></canvas>
+    <div *ngIf="survey.type != 'freeResponse'">
+      <h3 style="font-size: 20px;">{{ survey.question }}</h3>
+      <div style="display: block; height:50%; width: 60%">
+        <canvas
+          baseChart
+          [datasets]="survey.data"
+          [labels]="survey.labels"
+          [options]="barChartOptions"
+          [legend]="barChartLegend"
+          [chartType]="barChartType"
+        ></canvas>
+      </div>
+    </div>
+  </div>
+  <div *ngFor="let survey of survey_prediction">
+    <div *ngIf="survey.type == 'freeResponse'">
+        <h3 style="font-size: 20px;">{{ survey.question }}</h3>
+        <div *ngFor="let ans of survey.data">
+          {{ ans }}
+        </div>
     </div>
   </div>
   <h1>Add Ons</h1>
