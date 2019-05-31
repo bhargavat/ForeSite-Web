@@ -1,21 +1,29 @@
-<div class = "row">
-  <div class = "col-9">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-    <div class = "title">
-        <h2><i class="fas fa-chevron-left"></i></h2>
-        <span class="example-spacer"></span>
-        <h2><span>{{event_info.title}}</span></h2>
-        <span class="example-spacer"></span>
+<div class="row">
+  <div class="col-9">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    />
+    <div class="title">
+      <h2><i class="fas fa-chevron-left"></i></h2>
+      <span class="example-spacer"></span>
+      <h2>
+        <span>{{ event_info.title }}</span>
+      </h2>
+      <span class="example-spacer"></span>
     </div>
     <hr />
-    
+
     <div>
       <h4 class="subtitle">
         <span><i class="fas fa-calendar-day"></i></span>
         &nbsp;&nbsp;Date
       </h4>
-      <p><b>From:</b> {{event_info.start_date_time_formatted}}</p>
-      <p><b>To:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> {{event_info.end_date_time_formatted}}</p>
+      <p><b>From:</b> {{ event_info.start_date_time_formatted }}</p>
+      <p>
+        <b>To:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+        {{ event_info.end_date_time_formatted }}
+      </p>
     </div>
 
     <div>
@@ -23,7 +31,7 @@
         <span><i class="fas fa-location-arrow"></i></span>
         &nbsp;&nbsp;Location
       </h4>
-      <p>{{event_info.location2}}</p>
+      <p>{{ event_info.location2 }}</p>
       <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
     </div>
 
@@ -43,6 +51,14 @@
       [routerLink]="['/prediction', event_id]"
     >
       Registration Metrics
+    </button>
+    <button
+      style="margin-left: 10px;"
+      type="button"
+      class="btn btn-primary"
+      [routerLink]="['/livemetrics', event_id]"
+    >
+      Live Metrics
     </button>
   </div>
 </div>
