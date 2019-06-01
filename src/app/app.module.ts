@@ -44,6 +44,7 @@ import { eventListService } from "./services/eventListService";
 import { PredictionComponent } from "./components/prediction/prediction.component";
 import { ChartsModule } from "ng2-charts";
 import { HomeComponent } from './home/home.component';
+import { LivemetricsComponent } from './components/livemetrics/livemetrics.component';
 
 // const routes: Routes = [
 // ];
@@ -62,7 +63,8 @@ const routes: Routes = [];
     EventComponent,
     CreateComponent,
     PredictionComponent,
-    HomeComponent
+    HomeComponent,
+    LivemetricsComponent
   ],
   imports: [
     BrowserModule,

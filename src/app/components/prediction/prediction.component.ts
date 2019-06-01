@@ -131,10 +131,19 @@ export class PredictionComponent implements OnInit {
         let mainObj = {
           question: s.question,
           labels: labels,
+          type: 'choice',
           data: []
         };
         mainObj.data.push(total);
         mainObj.data.push(expected);
+        this.survey_prediction.push(mainObj);
+      }
+      else{
+        let mainObj = {
+          question: s.question,
+          type: 'freeResponse',
+          data: s.answers
+        };
         this.survey_prediction.push(mainObj);
       }
     }
