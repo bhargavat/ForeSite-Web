@@ -48,7 +48,7 @@ export class AuthService {
     this.loginInfo(this.login_info).subscribe(response => {
       if(response.response === 'success'){
         this.loggedIn.next(true);
-        this.router.navigate(['/']);
+        this.router.navigate(['/home']);
         return true;
     }
     })
