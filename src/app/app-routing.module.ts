@@ -11,9 +11,8 @@ import { AppMainComponent } from "./app-main/app-main.component";
 import { AuthGuard } from "./components/auth/auth.guard";
 import { EventComponent } from "./components/event/event.component";
 import { CreateComponent } from "./create/create.component";
-import { HomepageComponent } from "./components/homepage/homepage.component";
 import { PredictionComponent } from "./components/prediction/prediction.component";
-import { LivemetricsComponent } from "./components/livemetrics/livemetrics.component";
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
@@ -25,9 +24,8 @@ const routes: Routes = [
       { path: "edit-profile", component: AppProfileComponent },
       { path: "event/:event_id", component: EventComponent },
       { path: "create", component: CreateComponent },
-      { path: "home", component: HomepageComponent },
-      { path: "prediction/:event_id", component: PredictionComponent },
-      { path: "livemetrics/:event_id", component: LivemetricsComponent }
+      {path: "home", component: HomeComponent},
+      { path: "prediction/:event_id", component: PredictionComponent }
     ]
   },
 

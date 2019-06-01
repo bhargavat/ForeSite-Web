@@ -5,23 +5,23 @@
       href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     />
     <div class="title">
-      <h2><i class="fas fa-chevron-left"></i></h2>
-      <span class="example-spacer"></span>
       <h2>
-        <span>{{ event_info.title }}</span>
+        <span><i class="fas fa-chevron-left"></i></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;{{ event_info.title }}
       </h2>
-      <span class="example-spacer"></span>
     </div>
-    <hr />
 
     <div>
       <h4 class="subtitle">
         <span><i class="fas fa-calendar-day"></i></span>
         &nbsp;&nbsp;Date
       </h4>
-      <p><b>From:</b> {{ event_info.start_date_time_formatted }}</p>
       <p>
-        <b>To:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+        <b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; From:</b>
+        {{ event_info.start_date_time_formatted }}
+      </p>
+      <p>
+        <b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; To:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
         {{ event_info.end_date_time_formatted }}
       </p>
     </div>
@@ -32,7 +32,6 @@
         &nbsp;&nbsp;Location
       </h4>
       <p>{{ event_info.location2 }}</p>
-      <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
     </div>
 
     <div>
@@ -51,14 +50,6 @@
       [routerLink]="['/prediction', event_id]"
     >
       Registration Metrics
-    </button>
-    <button
-      style="margin-left: 10px;"
-      type="button"
-      class="btn btn-primary"
-      [routerLink]="['/livemetrics', event_id]"
-    >
-      Live Metrics
     </button>
   </div>
 </div>

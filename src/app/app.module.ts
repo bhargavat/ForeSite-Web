@@ -40,11 +40,10 @@ import { EventComponent } from "./components/event/event.component";
 import { CreateComponent } from "./create/create.component";
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import { HomepageComponent } from './components/homepage/homepage.component';
 import { eventListService } from "./services/eventListService";
 import { PredictionComponent } from "./components/prediction/prediction.component";
 import { ChartsModule } from "ng2-charts";
-import { LivemetricsComponent } from './components/livemetrics/livemetrics.component';
+import { HomeComponent } from './home/home.component';
 
 // const routes: Routes = [
 // ];
@@ -62,9 +61,8 @@ const routes: Routes = [];
     AppMainComponent,
     EventComponent,
     CreateComponent,
-    HomepageComponent,
     PredictionComponent,
-    LivemetricsComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
