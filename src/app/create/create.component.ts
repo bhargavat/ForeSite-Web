@@ -33,6 +33,7 @@ export class CreateComponent implements OnInit {
     end_date: "",
     is_tbd: 0,
     category: "",
+    thumbnail_icon: "",
     description: "",
     max_purchase_quantity: 0,
     max_quantity_available: 0,
